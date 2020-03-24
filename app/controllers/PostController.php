@@ -6,10 +6,15 @@ class PostController
 
     public function index()
     {
-
+        $users = [
+            ['username'=>'sunkan', 'age'=>41],
+            ['username'=>'mallis', 'age'=>34]
+        ];
 //        TODO hämta från db med modell
-
-        require VIEWS . DIRECTORY_SEPARATOR . 'posts' . DIRECTORY_SEPARATOR . 'index.php';
+        $loader = new \Twig\Loader\FilesystemLoader(VIEWS . DIRECTORY_SEPARATOR . 'posts');
+        $twig = new \Twig\Environment($loader, []);
+        $template = $twig->load('index.html');
+        echo $template->render(['users'=>$users]);
     }
 
     public function show($vars)
