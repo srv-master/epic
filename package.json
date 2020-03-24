@@ -1,0 +1,15 @@
+{
+  "name": "epic",
+  "version": "1.0.0",
+  "description": "Ett episkt projekt",
+  "main": "public/index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "?.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
