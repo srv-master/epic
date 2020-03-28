@@ -21,15 +21,16 @@ class PostsController
         view('posts','index',$data);
     }
 
-    public function show($vars)
+    /**
+     * Visa en Post utifrån id i urlen
+     * @param $vars array Tar in Indata från routing
+     */
+    public function show(array $vars)
     {
-        echo __METHOD__ . "<br>";
-        $id = $vars["id"];
-//        $post = new Post('Fiskbil','Lorem tuna',2);
         $post = new Post();
-        $post->find($id);
+        $post->find($vars["id"]);
         var_dump($post);
-
+        echo __METHOD__ . "<br>";
     }
 
     public function edit()
