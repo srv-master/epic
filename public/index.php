@@ -7,13 +7,13 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
 //    $r->addRoute('GET', '/', 'homeController.php');
 
     // visa alla posts
-    $r->addRoute('GET', '/posts', 'PostController@index');
-    $r->addRoute('GET', '/posts/{id:\d+}[/]', 'PostController@show');
-    $r->addRoute('GET', '/posts/{id:\d+}/edit[/]', 'PostController@edit');
-    $r->addRoute('GET', '/posts/{id:\d+}/delete[/]', 'PostController@delete');
-    $r->addRoute('POST', '/posts/{id:\d+}[/]', 'PostController@update');
-    $r->addRoute('GET', '/posts/new[/]', 'PostController@new');
-    $r->addRoute('POST', '/posts/new[/]', 'PostController@store');
+    $r->addRoute('GET', '/posts', 'PostsController@index');
+    $r->addRoute('GET', '/posts/{id:\d+}[/]', 'PostsController@show');
+    $r->addRoute('GET', '/posts/{id:\d+}/edit[/]', 'PostsController@edit');
+    $r->addRoute('GET', '/posts/{id:\d+}/delete[/]', 'PostsController@delete');
+    $r->addRoute('POST', '/posts/{id:\d+}[/]', 'PostsController@update');
+    $r->addRoute('GET', '/posts/new[/]', 'PostsController@new');
+    $r->addRoute('POST', '/posts/new[/]', 'PostsController@store');
 
     // {id} must be a number (\d+)
 //    $r->addRoute('GET', '/user/{id:\d+}', 'get_user_handler');
@@ -46,7 +46,7 @@ switch ($routeInfo[0]) {
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
         $tmp = explode("@", $handler);
-        var_dump($tmp);
+//        var_dump($tmp);
         $class = $tmp[0];
         $method = $tmp[1];
         $controller = new $class;

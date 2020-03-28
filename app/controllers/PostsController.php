@@ -1,28 +1,37 @@
 <?php
 
 
-class PostController
+class PostsController
 {
 
     public function index()
     {
+
+//        ---- model ----
+//        TODO hämta från db med modell
         $users = [
             ['username'=>'sunkan', 'age'=>41],
             ['username'=>'mallis', 'age'=>34]
         ];
-//        TODO hämta från db med modell
-        $loader = new \Twig\Loader\FilesystemLoader(VIEWS . DIRECTORY_SEPARATOR . 'posts');
-        $twig = new \Twig\Environment($loader, []);
-        $template = $twig->load('index.html');
-        echo $template->render(['users'=>$users]);
+
+//        ---- view ----
+        $data = [
+            "users"=>$users
+        ];
+        view('posts','index',$data);
     }
 
     public function show($vars)
     {
-        echo "<br>Visa 1 post med detaljer";
-        var_dump($vars);
-//        TODO hämta från db med modell
-//        TODO visa på skärm med vy
+        echo __METHOD__ . "<br>";
+        $id = $vars["id"];
+//        $post = new Post('Fiskbil','Lorem tuna',2);
+        $post = new Post();
+        $post->find($id);
+        var_dump($post);
+
+//        var_dump($vars);
+
     }
 
     public function edit()
