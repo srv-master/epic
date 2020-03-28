@@ -30,8 +30,6 @@ class PostsController
         $post->find($id);
         var_dump($post);
 
-//        var_dump($vars);
-
     }
 
     public function edit()
