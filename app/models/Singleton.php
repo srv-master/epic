@@ -8,12 +8,10 @@ class Singleton
 
     protected function __construct()
     {
-        $host = '192.168.250.74';
-        $user = 'demo1234'; // ersätt med era egna
-        $pass = 'demo1234'; // ersätt med era egna
-        $dbName = 'demo1234'; // ersätt med era egna
-        $dsn = "mysql:dbname=$dbName;host=$host;port=3306;charset=utf8";
-        $this->pdo = new PDO($dsn, $user, $pass);
+        global $dbName, $user, $pass;
+
+        $dsn = "mysql:dbname=".DB_NAME.";host=".HOST.";port=3306;charset=utf8";
+        $this->pdo = new PDO($dsn, USER, PASS);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
     }

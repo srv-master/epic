@@ -9,6 +9,7 @@ define('MODELS', APP . DIRECTORY_SEPARATOR . 'models');
 define('CONTROLLERS', APP . DIRECTORY_SEPARATOR . 'controllers');
 
 require '../vendor/autoload.php';
+require ROOT . DIRECTORY_SEPARATOR . 'secret.php';
 
 function autoloadController($class)
 {
