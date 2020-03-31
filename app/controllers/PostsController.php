@@ -29,12 +29,11 @@ class PostsController
     {
         $post = new Post();
         $post->find($vars["id"]);
-
+        var_dump($post);
         $data = [
             "post" => $post
         ];
         view('posts', 'show', $data);
-
 
     }
 
