@@ -39,7 +39,7 @@ class Post
             $this->userId = intval($result->userId);
             $this->username = $result->username;
             $this->bio = $result->bio;
-            $this->img = $result->img;
+            $this->img = $result->postImg;
         }
     }
 
