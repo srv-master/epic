@@ -62,10 +62,9 @@ class PostsController
 
     public function update(array $vars)
     {
-        echo "<br>Spara ändringar med update-fråga mot db";
-//        var_dump($vars);
-//        TODO hämta från db med modell
-//        TODO visa på skärm med vy
+        $post = new Post();
+        $post->update($vars["id"]);
+        header('Location: /posts/' . $vars["id"]);
     }
 
     public function add(array $vars)

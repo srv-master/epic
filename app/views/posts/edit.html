@@ -52,31 +52,28 @@
                 <img class="card-img-top" src="{{post.postImg}}" alt="">
 
                 <div class="card-body">
-                    <form>
+                    <form method="post" action="/posts/{{post.postId}}">
                         <div class="form-group">
                             <label for="heading">Rubrik</label>
                             <input type="text" class="form-control" id="heading" name="heading"
                                    value="{{post.heading}}">
-                            <!--                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone-->
-                            <!--                                else.</small>-->
                         </div>
                         <div class="form-group">
                             <label for="body">Text</label>
                             <textarea class="form-control" name="body" id="body" rows="10">{{post.body}}</textarea>
-                            <!--                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone-->
-                            <!--                                else.</small>-->
+                        </div>
+
+
+                        <p>Post made by <strong title="{{post.bio}}"><a
+                                href="/users/{{post.userId}}">{{post.username}}</a></strong>
+                        </p>
+
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-outline-primary">Submit</button>
+                            <a class="btn btn-outline-secondary" href="/posts/{{post.postId}}">Avbryt</a>
+                            <a class="btn btn-outline-danger" href="/posts/{{post.postId}}/delete">Ta bort</a>
                         </div>
                     </form>
-                    <!--                    <h1 class="card-title">{{post.heading}}</h1>-->
-                    <!--                    <p class="card-body">{{post.body}}</p>-->
-                    <p>Post made by <strong title="{{post.bio}}"><a
-                            href="/users/{{post.userId}}">{{post.username}}</a></strong>
-                    </p>
-                    <div class="btn-group">
-                        <a class="btn btn-outline-primary" href="/posts/{{post.postId}}">Spara</a>
-                        <a class="btn btn-outline-secondary" href="/posts/{{post.postId}}">Avbryt</a>
-                        <a class="btn btn-outline-danger" href="/posts/{{post.postId}}/delete">Ta bort</a>
-                    </div>
                 </div>
             </div>
         </div>

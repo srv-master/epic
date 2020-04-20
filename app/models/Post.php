@@ -45,4 +45,20 @@ class Post
         }
     }
 
+    public function update(int $id)
+    {
+        $id = filter_var($id, FILTER_SANITIZE_SPECIAL_CHARS);
+        $input = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
+//        var_dump($input);
+        $query = "
+            update posts
+            set heading=:heading, body=:body
+            where postId=:id";
+        $stmt = Singleton::getInstance()->getPDO()->prepare($query);
+        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':heading', $input["heading"]);
+        $stmt->bindValue(':body', $input["body"]);
+        $stmt->execute();
+    }
+
 }
