@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{post.heading}} | ehow({{post.postId}}) </title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
-
+    <title>{{post.heading}} | {{post.postId}}</title>
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css">
 </head>
 <body>
 <header>
@@ -49,39 +48,23 @@
 <main>
     <div class="container">
         <div class="row pt-4">
-            <div class="">
-                <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top bg-dark" src="{{post.postImg}}" alt="Bild till Post">
-                    <!--                    <img class="card-img-top bg-dark" src="/img/sill.jpg" alt="Bild till Post">-->
-                    <div class="card-body">
-                        <h5 class="card-title">{{post.heading}}</h5>
-                        <p class="card-text">{{post.body}}</p>
-                        <p>Skrivet av <a href="/users/{{post.userId}}" title="{{post.bio}}">{{post.username}}</a></p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="/posts/{{post.postId}}/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
-                                <!--                                <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>-->
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                    <div class="card-body border-top">
-                        <h5 class="card-title">Kommentarer</h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                    </div>
+            <div class="card">
+                <img class="card-img-top" src="{{post.postImg}}" alt="">
+                <div class="card-body">
+                    <h1 class="card-title">{{post.heading}}</h1>
+                    <p class="card-body">{{post.body}}</p>
+                    <p>Post made by <strong title="{{post.bio}}"><a
+                            href="/users/{{post.userId}}">{{post.username}}</a></strong>
+                    </p>
+                    <a class="btn btn-outline-primary" href="/posts/{{post.postId}}/edit">Redigera</a>
                 </div>
             </div>
         </div>
-    </div>
-
-
 </main>
-<script src="/js/jquery.min.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+
+
+<script src="/libs/jquery.min.js"></script>
+<script src="/libs/popper.min.js"></script>
+<script src="/libs/bootstrap/bootstrap.bundle.js"></script>
 </body>
 </html>

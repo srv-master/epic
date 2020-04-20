@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redigera inlägg | edit({{post.postId}})</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
-
+    <title>{{post.heading}} | {{post.postId}}</title>
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css">
 </head>
 <body>
 <header>
@@ -49,49 +48,43 @@
 <main>
     <div class="container">
         <div class="row pt-4 col-12">
+            <div class="card col-12">
+                <img class="card-img-top" src="{{post.postImg}}" alt="">
 
-            <div class="card col-12 mb-4 shadow-sm">
-                <img class="card-img-top bg-dark" src="{{post.postImg}}" alt="Bild till Post">
-                <!--                    <img class="card-img-top bg-dark" src="/img/sill.jpg" alt="Bild till Post">-->
                 <div class="card-body">
-                    <div class="form-group">
-                        <label for="heading" class="text-muted">Rubrik</label><br>
-                        <input class="form-control" type="text" name="heading" id="heading" value="{{post.heading}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="body">Text för inlägget</label><br>
-                        <textarea class="form-control" name="body" id="body" rows="10">{{post.body}}</textarea>
-                    </div>
-
-
-                    <p>Skrivet av <a href="/users/{{post.userId}}" title="{{post.bio}}">{{post.username}}</a></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-primary">Spara</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Avbryt</button>
-                            <button type="button" class="btn btn-sm btn-outline-danger">Ta bort</button>
-                            <!--                                <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>-->
+                    <form>
+                        <div class="form-group">
+                            <label for="heading">Rubrik</label>
+                            <input type="text" class="form-control" id="heading" name="heading"
+                                   value="{{post.heading}}">
+                            <!--                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone-->
+                            <!--                                else.</small>-->
                         </div>
-                        <small class="text-muted">9 mins</small>
+                        <div class="form-group">
+                            <label for="body">Text</label>
+                            <textarea class="form-control" name="body" id="body" rows="10">{{post.body}}</textarea>
+                            <!--                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone-->
+                            <!--                                else.</small>-->
+                        </div>
+                    </form>
+                    <!--                    <h1 class="card-title">{{post.heading}}</h1>-->
+                    <!--                    <p class="card-body">{{post.body}}</p>-->
+                    <p>Post made by <strong title="{{post.bio}}"><a
+                            href="/users/{{post.userId}}">{{post.username}}</a></strong>
+                    </p>
+                    <div class="btn-group">
+                        <a class="btn btn-outline-primary" href="/posts/{{post.postId}}">Spara</a>
+                        <a class="btn btn-outline-secondary" href="/posts/{{post.postId}}">Avbryt</a>
+                        <a class="btn btn-outline-danger" href="/posts/{{post.postId}}/delete">Ta bort</a>
                     </div>
-                </div>
-                <div class="card-body border-top">
-                    <h5 class="card-title">Kommentarer</h5>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
                 </div>
             </div>
         </div>
-
-    </div>
-
-
 </main>
-<script src="/js/jquery.min.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+
+
+<script src="/libs/jquery.min.js"></script>
+<script src="/libs/popper.min.js"></script>
+<script src="/libs/bootstrap/bootstrap.bundle.js"></script>
 </body>
 </html>
