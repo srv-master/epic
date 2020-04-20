@@ -48,7 +48,14 @@ class Post
     public function update(int $id)
     {
         $id = filter_var($id, FILTER_SANITIZE_SPECIAL_CHARS);
-        $input = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
+//        $input = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
+        $config = HTMLPurifier_Config::createDefault();
+        $purifier = new HTMLPurifier($config);
+        $input = [];
+
+        foreach ($_POST as $dirtyKey => $dirtyValue) {
+            $input[$dirtyKey] = $purifier->purify($dirtyValue);
+        }
 //        var_dump($input);
         $query = "
             update posts

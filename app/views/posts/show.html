@@ -52,7 +52,7 @@
                 <img class="card-img-top" src="{{post.postImg}}" alt="">
                 <div class="card-body">
                     <h1 class="card-title">{{post.heading}}</h1>
-                    <p class="card-body">{{post.body}}</p>
+                    <p class="card-body">{{post.body|raw}}</p>
                     <p>Post made by <strong title="{{post.bio}}"><a
                             href="/users/{{post.userId}}">{{post.username}}</a></strong>
                     </p>
