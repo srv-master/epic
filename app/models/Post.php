@@ -3,18 +3,20 @@
 
 class Post
 {
-    public $postId, $heading, $body, $userId;
-    public $username, $bio, $img;
+    public $postId, $heading, $body, $userId, $postImg;
+    public $username, $bio, $userImg;
 
     public function __construct(
         string $heading = null,
         string $body = null,
-        int $userId = null
+        int $userId = null,
+        string $postImg = null
     )
     {
         $heading ? $this->heading = $heading : false;
         $body ? $this->body = $body : false;
         $userId ? $this->userId = $userId : false;
+        $postImg ? $this->userId = $postImg : false;
     }
 
     public function find(int $id)
@@ -39,7 +41,7 @@ class Post
             $this->userId = intval($result->userId);
             $this->username = $result->username;
             $this->bio = $result->bio;
-            $this->img = $result->img;
+            $this->postImg = $result->postImg;
         }
     }
 

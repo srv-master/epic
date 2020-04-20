@@ -29,7 +29,7 @@ class PostsController
     {
         $post = new Post();
         $post->find($vars["id"]);
-        var_dump($post);
+//        var_dump($post);
         $data = [
             "post" => $post
         ];
@@ -41,16 +41,18 @@ class PostsController
      * Visar vyn för att redigera en Post
      * @return boolean success
      */
-    public function edit()
+    public function edit(array $vars)
     {
-        echo "<br>Formulär för att redigera";
-//        var_dump($vars);
-//        TODO hämta från db med modell
-//        TODO visa på skärm med vy
-        return true;
+        $post = new Post();
+        $post->find($vars["id"]);
+//        var_dump($post);
+        $data = [
+            "post" => $post
+        ];
+        view('posts', 'edit', $data);
     }
 
-    public function delete()
+    public function delete(array $vars)
     {
         echo "<br>Döda post med delete-fråga";
 //        var_dump($vars);
@@ -58,7 +60,7 @@ class PostsController
 //        TODO visa på skärm med vy
     }
 
-    public function update()
+    public function update(array $vars)
     {
         echo "<br>Spara ändringar med update-fråga mot db";
 //        var_dump($vars);
@@ -66,7 +68,7 @@ class PostsController
 //        TODO visa på skärm med vy
     }
 
-    public function add()
+    public function add(array $vars)
     {
         echo "<br>Formulär som man fyller i för att göra en ny";
 //        var_dump($vars);
@@ -74,7 +76,7 @@ class PostsController
 //        TODO visa på skärm med vy
     }
 
-    public function store()
+    public function store(array $vars)
     {
         echo "<br>Sparar en ny med insert-fråga";
 //        var_dump($vars);
