@@ -6,10 +6,14 @@ class HomeController
 
     public function index()
     {
-
-        $data = [
-        ];
-        view('home', 'index', $data);
+        // inloggad
+        if (isset($_SESSION["username"])) {
+            $data = [
+            ];
+            view('home', 'index', $data);
+        } else {
+            header("Location: /login");
+        }
     }
 
 

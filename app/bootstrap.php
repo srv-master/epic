@@ -1,8 +1,8 @@
 <?php
 
 //konstanter för sökvägar
-define('ROOT',dirname(__DIR__));
-define('APP',__DIR__);
+define('ROOT', dirname(__DIR__));
+define('APP', __DIR__);
 define('PUB', ROOT . DIRECTORY_SEPARATOR . 'public');
 define('VIEWS', APP . DIRECTORY_SEPARATOR . 'views');
 define('MODELS', APP . DIRECTORY_SEPARATOR . 'models');
@@ -11,10 +11,12 @@ define('CONTROLLERS', APP . DIRECTORY_SEPARATOR . 'controllers');
 require '../vendor/autoload.php';
 require ROOT . DIRECTORY_SEPARATOR . 'secret.php';
 
+session_start();
+
 function autoloadController($class)
 {
     $file = CONTROLLERS . DIRECTORY_SEPARATOR . $class . ".php";
-    if(file_exists($file)) {
+    if (file_exists($file)) {
         require $file;
     }
 }
