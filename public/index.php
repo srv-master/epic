@@ -4,9 +4,10 @@ require "../app/bootstrap.php";
 
 
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
-//    $r->addRoute('GET', '/', 'homeController.php');
+    // home
+    $r->addRoute('GET', '/', 'HomeController@index');
 
-    // visa alla posts
+    // posts
     $r->addRoute('GET', '/posts', 'PostsController@index');
     $r->addRoute('GET', '/posts/{id:\d+}[/]', 'PostsController@show');
     $r->addRoute('GET', '/posts/{id:\d+}/edit[/]', 'PostsController@edit');
