@@ -18,7 +18,17 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
     $r->addRoute('GET', '/posts/{id:\d+}/delete[/]', 'PostsController@delete');
     $r->addRoute('POST', '/posts/{id:\d+}[/]', 'PostsController@update');
     $r->addRoute('GET', '/posts/new[/]', 'PostsController@new');
-    $r->addRoute('POST', '/posts/new[/]', 'PostsController@store');
+    $r->addRoute('POST', '/posts', 'PostsController@store');
+
+    // users
+    $r->addRoute('GET', '/users/new[/]', 'UsersController@new');
+    $r->addRoute('GET', '/users/{username}[/]', 'UsersController@show');
+//    $r->addRoute('GET', '/users/{username}/edit[/]', 'UsersController@edit');
+//    $r->addRoute('GET', '/users/{id:\d+}/delete[/]', 'UsersController@delete');
+//    $r->addRoute('POST', '/users/{id:\d+}[/]', 'UsersController@update');
+
+    $r->addRoute('POST', '/users', 'UsersController@store');
+
 
     // {id} must be a number (\d+)
 //    $r->addRoute('GET', '/user/{id:\d+}', 'get_user_handler');
