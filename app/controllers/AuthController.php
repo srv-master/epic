@@ -14,17 +14,21 @@ class AuthController
 
     public function auth()
     {
-        var_dump($_POST);
-        var_dump($_SESSION);
+//        var_dump($_POST);
+//        var_dump($_SESSION);
 
-        // login OK
-        // TODO riktigt login
 
-        $_SESSION["username"] = "arneanka";
-
+//        $_SESSION["username"] = "arneanka";
+        $user = new User();
+        $user->login($_POST["username"], $_POST["password"]);
+//        var_dump($user);
+        if ($user->username) {
+            $_SESSION["username"] = $user->username;
+        }
         $data = [
         ];
         header("Location: /");
+//        var_dump($_SESSION);
     }
 
     public function logout()

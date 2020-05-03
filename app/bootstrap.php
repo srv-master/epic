@@ -48,3 +48,10 @@ function view(string $dir, string $view, array $data)
     $template = $twig->load($view . '.html');
     echo $template->render($data);
 }
+
+function auth()
+{
+    if (!isset($_SESSION["username"])) {
+        header("Location: /login");
+    }
+}

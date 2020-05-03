@@ -27,6 +27,7 @@ class PostsController
      */
     public function show(array $vars)
     {
+//        auth();
         $post = new Post();
         $post->find($vars["id"]);
 //        var_dump($post);
@@ -43,6 +44,7 @@ class PostsController
      */
     public function edit(array $vars)
     {
+        auth();
         $post = new Post();
         $post->find($vars["id"]);
 //        var_dump($post);
@@ -54,6 +56,7 @@ class PostsController
 
     public function delete(array $vars)
     {
+        auth();
         echo "<br>Döda post med delete-fråga";
 //        var_dump($vars);
 //        TODO hämta från db med modell
@@ -62,6 +65,7 @@ class PostsController
 
     public function update(array $vars)
     {
+        auth();
         $post = new Post();
         $post->update($vars["id"]);
         header('Location: /posts/' . $vars["id"]);
@@ -69,6 +73,7 @@ class PostsController
 
     public function add(array $vars)
     {
+        auth();
         echo "<br>Formulär som man fyller i för att göra en ny";
 //        var_dump($vars);
 //        TODO hämta från db med modell
